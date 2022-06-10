@@ -8,7 +8,7 @@ before_install:
   - docker build -t mottekowsi/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true mottekowsi/react-test npm test
+  - docker run -e CI=true mottekowsi/react-test npm test -- --coverage
 
 after_success:
   - docker build -t mottekowsi/multi-client ./client
